@@ -1,0 +1,25 @@
+version: 0.2
+env: 
+  parameter-store: 
+    DB_HOST: "/Mohan/db_host"
+    DB_NAME: "/Mohan/db_name"
+    DB_USER: "/Mohan/db_user"
+    DB_PASSWORD: "/Mohan/db_password"
+
+phases:
+  install:
+    commands:
+      - echo entered in install phase
+
+  build: 
+    commands: 
+      - echo entered in build phase 
+      - sed -i 's/db_name/'$DB_NAME'/' wp-config.php
+      - sed -i 's/db_user_name/'$DB_USER'/' wp-config.php
+      - sed -i 's/db_password/'$DB_PASSWORD'/' wp-config.php
+      - sed -i 's/db_endpoint/'$DB_HOST'/' wp-config.php
+
+
+artifacts:
+  files:
+    - '**/*' 
