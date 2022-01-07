@@ -1,0 +1,12 @@
+sample.txt
+/*
+!.gitignore
+!wp-content/
+!buildspec.yml
+!Scripts
+!appspec.yml
+
+#ignore everything in "wp-content" directory except below
+wp-content/*
+!wp-content/plugins/
+!wp-content/themes/
